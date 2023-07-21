@@ -1,0 +1,25 @@
+{
+    "name": "SpoilerBlocker Extension",
+    "version": "0.0.1",
+    "description": "Blocks spoilers of specific movies",
+    "manifest_version": 3,
+    "background":{
+        "service_worker": "serviceWorker.js"
+    },
+    "host_permissions": ["<all_urls>"],
+    "permissions": ["scripting", "storage"],
+    "content_scripts": [
+        {
+            "all_frames": true,
+            "matches": [
+                "<all_urls>"
+            ],
+            "js": [
+                "content_scripts.js"
+            ]
+        }
+    ],
+    "action": {
+        "default_popup": "options.html"
+    }
+}
